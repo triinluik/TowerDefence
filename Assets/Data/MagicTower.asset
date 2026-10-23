@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 541f6aa281c5c514e870ec405af88f61, type: 3}
+  m_Name: MagicTower
+  m_EditorClassIdentifier: Assembly-CSharp::TowerData
+  Name: Magic Tower
+  Cost: 10
+  Hotkey: 2
+  Prefab: {fileID: 753063513268359373, guid: 88c52b3be8c6a114ab0d3abdd4080cec, type: 3}
+  Icon: {fileID: -4008839132697857593, guid: 8b013a8f7a4b13549904a2547507c1b4, type: 3}
