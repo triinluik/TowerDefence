@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7d24fe12f221ae4abae961856ba506b, type: 3}
+  m_Name: Second Scenario
+  m_EditorClassIdentifier: Assembly-CSharp::ScenarioData
+  PresentedName: Second Scenario
+  SceneName: Second Scenario
+  Lives: 3
+  StartingGold: 10
+  Waves:
+  - {fileID: 11400000, guid: 8b8fa8600845ca04e8a6a1a17d4594f2, type: 2}
+  - {fileID: 11400000, guid: 8498dd5b26d872746bc019b6c02ee2b8, type: 2}
+  - {fileID: 11400000, guid: 8b8fa8600845ca04e8a6a1a17d4594f2, type: 2}

@@ -7,6 +7,8 @@ public class ScenarioController : MonoBehaviour
     public int Gold = 100;
     public int Lives = 10;
 
+    public ScenarioData currentScenario;
+
     public TextMeshProUGUI GoldText;
     public TextMeshProUGUI LivesText;
     public TextMeshProUGUI LevelEndText;

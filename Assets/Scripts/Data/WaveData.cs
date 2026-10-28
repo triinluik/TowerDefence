@@ -1,7 +1,8 @@
 using UnityEngine;
 
 [System.Serializable]
-public class WaveData
+[CreateAssetMenu(menuName = "Game/Wave")]
+public class WaveData : ScriptableObject
 {
     public int EnemyCount = 3;
     public EnemyData EnemyType;

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "TowerDefence/Scenario")]
+[CreateAssetMenu(menuName = "Game/Scenario")]
 public class ScenarioData : ScriptableObject
 {
     public string PresentedName;

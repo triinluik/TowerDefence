@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "EnemyData", menuName = "TowerDefence/EnemyData")]
+[CreateAssetMenu(fileName = "EnemyData", menuName = "Game/EnemyData")]
 public class EnemyData : ScriptableObject
 {
     public int EnemyHealth = 1;
@@ -8,3 +8,4 @@ public class EnemyData : ScriptableObject
     public float EnemySpeed = 2f;
     public Sprite EnemySprite;
 }
+
