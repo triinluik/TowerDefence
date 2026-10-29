@@ -16,6 +16,10 @@ public class ScenarioController : MonoBehaviour
 
     public bool IsRunning { get; private set; } = true;
 
+    public void SetScenario(ScenarioData scenario)
+    {
+        currentScenario = scenario;
+    }
     private void UpdateHUD()
     {
         GoldText.text = Gold.ToString();
@@ -24,6 +28,11 @@ public class ScenarioController : MonoBehaviour
 
     void Start()
     {
+        if (currentScenario != null)
+        {
+            Gold = currentScenario.StartingGold;
+            Lives = currentScenario.Lives;
+        }
         UpdateHUD();
     }
     private void OnEnable()
@@ -71,6 +80,7 @@ public class ScenarioController : MonoBehaviour
     public void LoseLevel()
     {
         if (!IsRunning) return;
+        IsRunning = false;
         LevelEndText.text = "You Lose!";
         GameOverPanel.SetActive(true);
         Time.timeScale = 0f; // Pause the game
@@ -78,6 +88,8 @@ public class ScenarioController : MonoBehaviour
 
     public void WinLevel()
     {
+        if (!IsRunning) return;
+        IsRunning = false;
         LevelEndText.text = "You Win!";
         GameOverPanel.SetActive(true);
         Time.timeScale = 0f;

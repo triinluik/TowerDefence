@@ -6614,6 +6614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ScenarioController
   Gold: 100
   Lives: 10
+  currentScenario: {fileID: 0}
   GoldText: {fileID: 582267470}
   LivesText: {fileID: 1614223483}
   LevelEndText: {fileID: 1957927542}
@@ -6774,7 +6775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2450327080096667606, guid: fa62cbe67cc0e14438461cd88796c5a3, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2786820932738993772, guid: fa62cbe67cc0e14438461cd88796c5a3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

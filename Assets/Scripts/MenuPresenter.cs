@@ -45,7 +45,7 @@ public class MenuPresenter : MonoBehaviour
             gameObject.SetActive(false);
             // GetComponent gave us a NullReference, cause Unity xd
             ScenarioController controller = FindFirstObjectByType<ScenarioController>();
-            controller.currentScenario = selectedScenario;
+            controller.SetScenario(selectedScenario);
         }
         else 
         {
