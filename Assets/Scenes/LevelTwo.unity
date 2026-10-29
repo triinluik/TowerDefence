@@ -4384,9 +4384,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spawn
   FollowerPrefab: {fileID: 4322548565568886483, guid: 0b55bb77f5351f746b3480f7a262e16e, type: 3}
-  EnemiesPerWave: 5
-  SpawnDelay: 0.5
-  TimeBetweenWaves: 5
 --- !u!114 &317516466 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4316851169704360179, guid: d65862e291601ef459861bef846c48dc, type: 3}
@@ -6401,9 +6398,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spawn
   FollowerPrefab: {fileID: 4322548565568886483, guid: 0b55bb77f5351f746b3480f7a262e16e, type: 3}
-  EnemiesPerWave: 5
-  SpawnDelay: 0.5
-  TimeBetweenWaves: 5
 --- !u!114 &907041410 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4316851169704360179, guid: d65862e291601ef459861bef846c48dc, type: 3}
@@ -6619,6 +6613,10 @@ MonoBehaviour:
   LivesText: {fileID: 1614223483}
   LevelEndText: {fileID: 1957927542}
   GameOverPanel: {fileID: 2019017266}
+  Spawner:
+  - {fileID: 1706060969}
+  - {fileID: 300910861}
+  - {fileID: 735948764}
 --- !u!1001 &1210933911
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7507,9 +7505,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spawn
   FollowerPrefab: {fileID: 4322548565568886483, guid: 0b55bb77f5351f746b3480f7a262e16e, type: 3}
-  EnemiesPerWave: 5
-  SpawnDelay: 0.5
-  TimeBetweenWaves: 5
 --- !u!1001 &1718266849
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8397,7 +8392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4c7a98ac512ecd4aa2fe994b0ce26b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerBuilder
-  scenarioController: {fileID: 0}
+  scenarioController: {fileID: 1150411964}
   AllowColor: {r: 0.4862745, g: 0.9882354, b: 0, a: 0.74509805}
   DenyColor: {r: 1, g: 0, b: 0, a: 0.74509805}
 --- !u!212 &3288936754899277636

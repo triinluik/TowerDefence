@@ -5,8 +5,8 @@ public class WaypointFollower : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public Waypoint NextWaypoint;
     public float Speed = 3.0f;
-
     public static int EnemyCounter = 0;
+    public int CastleDamage = 1;
 
     void Start()
     {

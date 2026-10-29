@@ -13,12 +13,18 @@ public class ScenarioController : MonoBehaviour
     public TextMeshProUGUI LivesText;
     public TextMeshProUGUI LevelEndText;
     public GameObject GameOverPanel;
+    public Spawn[] Spawner;
+    private int currentWaveIndex = 0;
 
     public bool IsRunning { get; private set; } = true;
 
     public void SetScenario(ScenarioData scenario)
     {
+        /* MenuPresenter passes the selected scenario
+        SetScenario save it*/
         currentScenario = scenario;
+        // & StartLevel tells Spawner to begin the first wave
+        StartLevel();
     }
     private void UpdateHUD()
     {
@@ -28,12 +34,47 @@ public class ScenarioController : MonoBehaviour
 
     void Start()
     {
+        // Initializes Gold and Lives based on the current scenario
         if (currentScenario != null)
         {
             Gold = currentScenario.StartingGold;
             Lives = currentScenario.Lives;
         }
         UpdateHUD();
+    }
+
+    private void Update()
+    {
+        if (!IsRunning || currentScenario == null) return;
+        foreach (Spawn spawner in Spawner)
+        {
+            if (!spawner.HasFinishedSpawning)
+            {
+                return;
+            }
+        }
+        if (WaypointFollower.EnemyCounter > 0)
+        {
+
+            {
+                return;
+            }
+        }
+        NextWave();
+    }
+
+    private void NextWave()
+    {
+        currentWaveIndex++;
+        if (currentWaveIndex >= currentScenario.Waves.Length)
+        {
+            WinLevel();
+            return;
+        }
+        foreach (Spawn spawner in Spawner)
+        {
+            spawner.StartWave(currentScenario.Waves[currentWaveIndex]);
+        }
     }
     private void OnEnable()
     {
@@ -68,10 +109,11 @@ public class ScenarioController : MonoBehaviour
         UpdateHUD();
     }
 
-    public void LoseLife()
+    public void LoseLife(int damage)
     {
-        Lives--;
+        Lives -= damage;
         UpdateHUD();
+
         if (Lives <= 0)
         {
             LoseLevel();
@@ -96,7 +138,14 @@ public class ScenarioController : MonoBehaviour
     }
     public void StartLevel()
     {
-        Debug.Log("Level Started!");
+        currentWaveIndex = 0;
+        if (currentScenario != null && currentScenario.Waves.Length > 0)
+        {
+            foreach (Spawn spawner in Spawner)
+            {
+                spawner.StartWave(currentScenario.Waves[currentWaveIndex]);
+            }
+        }
     }
 
     public void RestartLevel()

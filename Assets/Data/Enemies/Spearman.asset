@@ -15,4 +15,4 @@ MonoBehaviour:
   EnemyHealth: 1
   EnemyDamage: 1
   EnemySpeed: 2
-  EnemySprite: {fileID: 0}
+  EnemySprite: {fileID: -1380967417565040979, guid: e2d99dd4051ea994d9986ca7c2a976f5, type: 3}

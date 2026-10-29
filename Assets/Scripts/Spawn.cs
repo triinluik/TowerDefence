@@ -5,51 +5,51 @@ public class Spawn : MonoBehaviour
 
     public WaypointFollower FollowerPrefab;
 
-    public int EnemiesPerWave = 5;
-    public float SpawnDelay = 0.5f;
-
-    public float TimeBetweenWaves = 5.0f;
-    private float NextSpawnTime = 0;
-
-    private float NextWaveTime = 0;
+    private WaveData currentWave;
+    private float nextSpawnTime;
     private int enemiesSpawnedInWave = 0;
-    private bool waveFinished = false;
-    void Start()
-    {
-        waveFinished = true;
-        NextWaveTime = Time.time + 5f;
-    }
+    private bool waveFinished = true;
+    // Allows ScenarioController to check if the wave has finished spawning but not modify the value
+    public bool HasFinishedSpawning => waveFinished;
 
     void Update()
     {
-        if (waveFinished)
-        {
-            if (Time.time >= NextWaveTime)
-            {
-                StartNextWave();
-            }
-            return;
-        }
-        if (NextSpawnTime <= Time.time)
-        {
-            WaypointFollower follower = Instantiate<WaypointFollower>(FollowerPrefab, transform.position, Quaternion.identity);
-            follower.NextWaypoint = GetComponent<Waypoint>();
+        if (waveFinished || currentWave == null) return;
 
-            follower.NextWaypoint = GetComponent<Waypoint>();
-            enemiesSpawnedInWave++;
-            NextSpawnTime = SpawnDelay + Time.time;
+        if (Time.time < nextSpawnTime) return;
 
-            if (enemiesSpawnedInWave >= EnemiesPerWave)
-            {
-                waveFinished = true;
-                NextWaveTime = Time.time + TimeBetweenWaves;
-            }
+        WaypointFollower follower = Instantiate(FollowerPrefab, transform.position, Quaternion.identity);
+
+        // One prefab, multiple enemy types. Not gonna build an entire army
+        // Assuming that's what you had in mind :D
+        follower.NextWaypoint = GetComponent<Waypoint>();
+        follower.Speed = currentWave.EnemyType.EnemySpeed;
+        follower.CastleDamage = currentWave.EnemyType.EnemyDamage;
+
+        Health enemyHealth = follower.GetComponent<Health>();
+        enemyHealth.health = currentWave.EnemyType.EnemyHealth;
+
+        SpriteRenderer spriteRenderer = follower.GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = currentWave.EnemyType.EnemySprite;
+
+        enemiesSpawnedInWave++;
+        nextSpawnTime = Time.time + currentWave.SpawnCooldown;
+
+        if (enemiesSpawnedInWave >= currentWave.EnemyCount)
+        {
+            waveFinished = true;
+            // Stops Unity from calling Update() when there's no more enemies to spawn
+            enabled = false;
         }
     }
-    public void StartNextWave()
+    public void StartWave(WaveData wave)
     {
+        Debug.Log($"StartWave called on {gameObject.name} with {wave.EnemyCount} enemies");
+        currentWave = wave;
         waveFinished = false;
         enemiesSpawnedInWave = 0;
-        NextSpawnTime = Time.time;
+        nextSpawnTime = Time.time;
+        // Disabled in Inspector to prevent spawning before the first wave starts
+        enabled = true; 
     }
 }

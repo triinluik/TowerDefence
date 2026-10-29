@@ -7,7 +7,7 @@ public class Castle : MonoBehaviour
         WaypointFollower enemy = collision.gameObject.GetComponent<WaypointFollower>();
         if (enemy != null)
         {
-            Events.LifeLost();
+            Events.LifeLost(enemy.CastleDamage);
             Destroy(enemy.gameObject);
         }
     }
