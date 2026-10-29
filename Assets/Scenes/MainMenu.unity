@@ -330,7 +330,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Trinn&Bara Epic Tower Defence
+  m_text: Triin&Bara Epic Tower Defence
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
@@ -410,6 +410,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 157110170}
   m_CullTransparentMesh: 1
+--- !u!1 &221713153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 221713155}
+  - component: {fileID: 221713154}
+  m_Layer: 0
+  m_Name: MenuManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &221713154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221713153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 727bd264efe2a95498504417d11bbe25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuPresenter
+  scenarios:
+  - {fileID: 11400000, guid: f19d0d97eab7fd549aaf630b03c5ca13, type: 2}
+  - {fileID: 11400000, guid: 1dccaf63e7f13f34b9db296297999c63, type: 2}
+  selectedScenario: {fileID: 0}
+--- !u!4 &221713155
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221713153}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 172.2, y: 359.9, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &559509882 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8782484697238127648, guid: 34adcecc8acb6464e9f0ea50bb025b35, type: 3}
@@ -427,7 +475,6 @@ GameObject:
   - component: {fileID: 603746444}
   - component: {fileID: 603746443}
   - component: {fileID: 603746442}
-  - component: {fileID: 603746446}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -521,22 +568,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &603746446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 603746441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 727bd264efe2a95498504417d11bbe25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MenuPresenter
-  scenarios:
-  - {fileID: 11400000, guid: f19d0d97eab7fd549aaf630b03c5ca13, type: 2}
-  - {fileID: 11400000, guid: 1dccaf63e7f13f34b9db296297999c63, type: 2}
-  selectedScenario: {fileID: 0}
 --- !u!1001 &871195227
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -642,12 +673,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8913221660581843772, guid: 34adcecc8acb6464e9f0ea50bb025b35, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8913221660581843772, guid: 34adcecc8acb6464e9f0ea50bb025b35, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 221713154}
+    - target: {fileID: 8913221660581843772, guid: 34adcecc8acb6464e9f0ea50bb025b35, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartScenario2
+      value: StartScenario
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913221660581843772, guid: 34adcecc8acb6464e9f0ea50bb025b35, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8971558296000330358, guid: 34adcecc8acb6464e9f0ea50bb025b35, type: 3}
       propertyPath: m_Sprite
@@ -964,7 +1003,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 221713154}
         m_TargetAssemblyTypeName: MenuPresenter, Assembly-CSharp
         m_MethodName: ExitGame
         m_Mode: 1
@@ -1240,8 +1279,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8913221660581843772, guid: 34adcecc8acb6464e9f0ea50bb025b35, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913221660581843772, guid: 34adcecc8acb6464e9f0ea50bb025b35, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913221660581843772, guid: 34adcecc8acb6464e9f0ea50bb025b35, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913221660581843772, guid: 34adcecc8acb6464e9f0ea50bb025b35, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 221713154}
+    - target: {fileID: 8913221660581843772, guid: 34adcecc8acb6464e9f0ea50bb025b35, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913221660581843772, guid: 34adcecc8acb6464e9f0ea50bb025b35, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartScenario
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913221660581843772, guid: 34adcecc8acb6464e9f0ea50bb025b35, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: MenuPresenter, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 9059923249572803414, guid: 34adcecc8acb6464e9f0ea50bb025b35, type: 3}
       propertyPath: m_Name
@@ -1259,3 +1322,4 @@ SceneRoots:
   - {fileID: 1975104148}
   - {fileID: 99186914}
   - {fileID: 603746445}
+  - {fileID: 221713155}

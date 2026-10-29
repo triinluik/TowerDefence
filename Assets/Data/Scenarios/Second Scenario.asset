@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Second Scenario
   m_EditorClassIdentifier: Assembly-CSharp::ScenarioData
   PresentedName: Second Scenario
-  SceneName: Second Scenario
+  SceneName: LevelTwo
   Lives: 3
   StartingGold: 10
   Waves:

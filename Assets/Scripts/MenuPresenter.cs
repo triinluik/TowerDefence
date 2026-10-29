@@ -26,29 +26,26 @@ public class MenuPresenter : MonoBehaviour
 
     public void ExitGame()
     {
+        Debug.Log("Exit clicked");
         Application.Quit();
     }
 
-    public void StartScenario1() //duplicate code, cause Im lazy xd
+    public void StartScenario(int index) // No more duplicate code, you're welcome xd
     {
-        SceneManager.LoadScene("LevelOne");
-        selectedScenario = scenarios[0];
-        OnLevelWasLoaded(1);
+        selectedScenario = scenarios[index];
+        SceneManager.LoadScene(selectedScenario.SceneName);
     }
 
-    public void StartScenario2()
-    {
-        SceneManager.LoadScene("LevelTwo");
-        selectedScenario = scenarios[2];
-        OnLevelWasLoaded(2);
-    }
-
+    //Also, Jaanus wants OnLevelWasLoaded, Unity disagrees and warns it's deprecated haha
     public void OnLevelWasLoaded(int level)
     {
+        Debug.Log("OnLevelWasLoaded called! Level: " + level);
         if (SceneManager.GetActiveScene().ToString() != "MainMenu")
         {
             gameObject.SetActive(false);
-            GetComponent<ScenarioController>().currentScenario = selectedScenario;
+            // GetComponent gave us a NullReference, cause Unity xd
+            ScenarioController controller = FindFirstObjectByType<ScenarioController>();
+            controller.currentScenario = selectedScenario;
         }
         else 
         {
