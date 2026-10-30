@@ -162,6 +162,6 @@ public class ScenarioController : MonoBehaviour
     public void RestartLevel()
     {
         Time.timeScale = 1f; // Resume the game
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        MenuPresenter.Instance.StartScenario(MenuPresenter.Instance.scenarios.IndexOf(currentScenario));
     }
 }

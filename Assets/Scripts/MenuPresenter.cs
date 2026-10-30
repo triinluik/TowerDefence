@@ -42,7 +42,6 @@ public class MenuPresenter : MonoBehaviour
         Debug.Log("OnLevelWasLoaded called! Level: " + level);
         if (SceneManager.GetActiveScene().ToString() != "MainMenu")
         {
-            gameObject.SetActive(false);
             // GetComponent gave us a NullReference, cause Unity xd
             ScenarioController controller = FindFirstObjectByType<ScenarioController>();
             controller.SetScenario(selectedScenario);
