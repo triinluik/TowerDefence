@@ -43,7 +43,10 @@ public class ScenarioController : MonoBehaviour
         UpdateHUD();
     }
 
-    private void Update()
+    /* Flow: Spawn finishes spawning enemies -> CheckWaveCompleted() -> wait if enemies remain
+     * Last enemy disappears -> OnDestroy() -> CheckWaveCompleted() -> WaveCompleted() -> next wave/victory 
+     */
+    public void CheckWaveCompleted()
     {
         if (!IsRunning || currentScenario == null) return;
         foreach (Spawn spawner in Spawner)
@@ -53,17 +56,12 @@ public class ScenarioController : MonoBehaviour
                 return;
             }
         }
-        if (WaypointFollower.EnemyCounter > 0)
-        {
+        if (WaypointFollower.EnemyCounter > 0) return;
+        if (Spawner.Length == 0) return;
 
-            {
-                return;
-            }
-        }
-        NextWave();
+        WaveCompleted();
     }
-
-    private void NextWave()
+    public void WaveCompleted()
     {
         currentWaveIndex++;
         if (currentWaveIndex >= currentScenario.Waves.Length)

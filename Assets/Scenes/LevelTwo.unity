@@ -4384,6 +4384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spawn
   FollowerPrefab: {fileID: 4322548565568886483, guid: 0b55bb77f5351f746b3480f7a262e16e, type: 3}
+  ScenarioController: {fileID: 1150411964}
 --- !u!114 &317516466 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4316851169704360179, guid: d65862e291601ef459861bef846c48dc, type: 3}
@@ -6398,6 +6399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spawn
   FollowerPrefab: {fileID: 4322548565568886483, guid: 0b55bb77f5351f746b3480f7a262e16e, type: 3}
+  ScenarioController: {fileID: 1150411964}
 --- !u!114 &907041410 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4316851169704360179, guid: d65862e291601ef459861bef846c48dc, type: 3}
@@ -7505,6 +7507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spawn
   FollowerPrefab: {fileID: 4322548565568886483, guid: 0b55bb77f5351f746b3480f7a262e16e, type: 3}
+  ScenarioController: {fileID: 1150411964}
 --- !u!1001 &1718266849
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -43,5 +43,14 @@ public class WaypointFollower : MonoBehaviour
     private void OnDestroy()
     {
         EnemyCounter--;
+
+        if (EnemyCounter == 0)
+        {
+            ScenarioController scenarioController = FindFirstObjectByType<ScenarioController>();
+            if (scenarioController != null && scenarioController.IsRunning)
+            {
+                scenarioController.CheckWaveCompleted();
+            }
+        }
     }
 }

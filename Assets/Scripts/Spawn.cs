@@ -4,6 +4,7 @@ public class Spawn : MonoBehaviour
 {
 
     public WaypointFollower FollowerPrefab;
+    public ScenarioController ScenarioController;
 
     private WaveData currentWave;
     private float nextSpawnTime;
@@ -40,6 +41,9 @@ public class Spawn : MonoBehaviour
             waveFinished = true;
             // Stops Unity from calling Update() when there's no more enemies to spawn
             enabled = false;
+
+            // Notify that the wave has finished
+            ScenarioController.CheckWaveCompleted();
         }
     }
     public void StartWave(WaveData wave)
