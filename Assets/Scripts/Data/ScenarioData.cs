@@ -9,4 +9,5 @@ public class ScenarioData : ScriptableObject
     public int StartingGold;
 
     public WaveData[] Waves;
+    public TowerData[] Towers;
 }

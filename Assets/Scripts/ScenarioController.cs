@@ -8,6 +8,8 @@ public class ScenarioController : MonoBehaviour
     public int Lives = 10;
 
     public ScenarioData currentScenario;
+    public TowerCard TowerCardPrefab;
+    public Transform TowerPanel;
 
     public TextMeshProUGUI GoldText;
     public TextMeshProUGUI LivesText;
@@ -23,6 +25,7 @@ public class ScenarioController : MonoBehaviour
         /* MenuPresenter passes the selected scenario
         SetScenario save it*/
         currentScenario = scenario;
+        CreateTowerCards();
         // & StartLevel tells Spawner to begin the first wave
         StartLevel();
     }
@@ -72,6 +75,16 @@ public class ScenarioController : MonoBehaviour
         foreach (Spawn spawner in Spawner)
         {
             spawner.StartWave(currentScenario.Waves[currentWaveIndex]);
+        }
+    }
+
+    private void CreateTowerCards()
+    {
+        foreach (TowerData tower in currentScenario.Towers)
+        {
+            TowerCard card = Instantiate(TowerCardPrefab, TowerPanel);
+            card.scenarioController = this;
+            card.SetData(tower);
         }
     }
     private void OnEnable()

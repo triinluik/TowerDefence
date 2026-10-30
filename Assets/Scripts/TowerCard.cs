@@ -24,6 +24,8 @@ public class TowerCard : MonoBehaviour
             Pressed();
         if (Input.GetKeyDown(KeyCode.Alpha3) && data.Hotkey == "3")
             Pressed();
+        if (Input.GetKeyDown(KeyCode.Alpha4) && data.Hotkey == "4")
+            Pressed();
     }
 
     void Start()
@@ -33,11 +35,11 @@ public class TowerCard : MonoBehaviour
         {
             button.onClick.AddListener(Pressed);
         }
-        SetData(data);
     }
 
     public void SetData(TowerData data)
     {
+        this.data = data;
         Icon.sprite = data.Icon;
         CostText.text = data.Cost.ToString();
         HotkeyText.text = data.Hotkey;
